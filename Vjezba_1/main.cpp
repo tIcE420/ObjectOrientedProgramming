@@ -30,17 +30,19 @@ int main() {
 	*/
 
 	//Struktura test
+	int a = 0;
+	cout << "Unesite velicinu niza";
+	cin >> a;
 	MyVector asd;
-	asd.vector_new(5);
-	for (int i = 0; asd.size; i++) {
-		scanf_s("%d", asd.arr[i]);
+	asd.vector_new(a);
+	cout << "Unesite clanove niza: ";
+	for (int i = 0; asd.capacity - 1; i++) {
+		int g;
+		cin >> g;
+		asd.vector_push_back(g);
 		
 	}
-	for (int i = 0; asd.size; i++) {
-		printf("%d", asd.arr[i]);
-
-	}
-	
-	
+	asd.print_vector();
+	asd.vector_delete();
 
 }

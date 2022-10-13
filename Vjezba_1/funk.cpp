@@ -55,51 +55,54 @@ int* niz_n(int* niz, int n) {
 	} 
 	return niz2;
 }
-void vector_new(size_t sz = 0) {
-	MyVector xy;
-	xy.arr = new int[sz];
-
-}
-
-void vector_delete() {
-	MyVector xy;
-	delete xy.arr;
-	xy.arr = 0;
-
+void MyVector::vector_new(size_t sz) {
+	capacity = sz;
+	if (sz <= 0) {
+		capacity = 1;
+	}
+	size = 0;
+	arr = new int[capacity];
 	
 }
-/* adds a new element at the end of the vector */
-void vector_push_back(int n) {
-	MyVector xy;
-	xy.arr[xy.size - 1] = n;
+
+void MyVector::vector_delete() {
+	delete (arr);
 }
-/* removes the last element in the vector */
-void vector_pop_back() {
-	MyVector xy;
-	int a;
-	xy.arr[xy.size] = a;
+
+void MyVector::vector_push_back(int n) {
+	if (size == capacity) {
+		capacity *= 2;
+		int *NewArr = new int[capacity];
+		for (int i = 0; i < size; i++) {
+			NewArr[i] = arr[i];
+		}
+		delete(arr);
+		arr = NewArr;
+	}
+	arr[size] = n;
+	size++;
 	
-}
-/* returns a reference to the first element in the vector*/
-int& vector_front() {
-	MyVector xy;
-	return xy.arr[0];
-}
-/* returns a reference to the last element in the vector */
-int& vector_back() {
-	MyVector xy;
-	return xy.arr[xy.size - 1];
-}
-/* returns the number of the elements in the vector */
-size_t vector_size() {
-	MyVector xy;
-	return xy.size;
-} 
 
+}
 
-void print_vector() {
-	MyVector xy;
-	for (int i = 0; i < xy.size; i++) {
-		printf("%d",xy.arr[i]);
+void MyVector::vector_pop_back() {
+	arr[size - 1] = NULL;
+	size--;
+}
+
+int& MyVector::vector_front() {
+	return arr[0];
+}
+
+int& MyVector::vector_back() {
+	return arr[size -1];
+}
+size_t MyVector::vector_size() {
+	return size;
+}
+
+void MyVector::print_vector() {
+	for (int i = 0; i < size; i++) {
+		cout << arr[i];
 	}
 }
