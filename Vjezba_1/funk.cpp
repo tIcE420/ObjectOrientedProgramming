@@ -1,7 +1,9 @@
 #include "myh.hpp"
 void ispis(int* niz, int broj_el) {
-	int a = 0;
 	int i = 0;
+	if (niz == NULL) {
+		cout << "Array not found";
+	}
 	for (i = 0; i < broj_el; i++) {
 		cout << niz[i];
 	}
@@ -9,6 +11,9 @@ void ispis(int* niz, int broj_el) {
 void unos(int* niz, int broj_el) {
 	int a = 0;
 	int i = 0;
+	if (niz == NULL) {
+		cout << "Array not found";
+	}
 	for (i = 0; i < broj_el; i++) {
 		cin >> a;
 		niz[i] = a;
@@ -16,18 +21,23 @@ void unos(int* niz, int broj_el) {
 }
 int* nizovi(int* niz, int broj_el,int* broj) {
 	int i = 0;
-	int temp = 0;
 	int j = 0;
 	int br = 0;
 	int* niz2 = new int[broj_el];
 	for (i = 0; i < broj_el; i++) {
-		if (niz[i] != niz[j] && niz[i] != niz[i - 1]) {
+		if(niz){
+			if (niz[i] != niz[j] && niz[i] != niz[i - 1]) {
 			niz2[br] = niz[i];
 			br++;
+			}
+			for (j = broj_el; j > 0; j--) {
+			}
 		}
-		for (j = broj_el; j > 0; j--) {
-		}
+		else {
+				return NULL;
+			}
 	}
+
 	*broj = br;
 	return niz2;
 }
@@ -37,6 +47,9 @@ int& funk(int* niz) {
 	for (i = 0; i < 5; i++) {
 		if (niz[i] > 0) {
 			return niz[i];
+		}
+		else {
+			return i;
 		}
 	}
 
@@ -86,22 +99,43 @@ void MyVector::vector_push_back(int n) {
 }
 
 void MyVector::vector_pop_back() {
+	if (size < capacity / 2) {
+		capacity /= 2;
+		int* NewArr = new int[capacity];
+		for (int i = 0; i < size; i++) {
+			NewArr[i] = arr[i];
+		}
+		delete(arr);
+		arr = NewArr;
+	}
 	arr[size - 1] = NULL;
 	size--;
 }
 
 int& MyVector::vector_front() {
-	return arr[0];
+	int a = 0;
+	if (arr != NULL) {
+		return arr[0];
+	}
+	return a;
 }
 
 int& MyVector::vector_back() {
-	return arr[size -1];
+	int a = 0;
+	if (arr != NULL) {
+		return arr[size - 1];
+	}
+	return a;
+
 }
 size_t MyVector::vector_size() {
 	return size;
 }
 
 void MyVector::print_vector() {
+	if (arr == NULL) {
+		cout << "Vector not found";
+	}
 	for (int i = 0; i < size; i++) {
 		cout << arr[i];
 	}

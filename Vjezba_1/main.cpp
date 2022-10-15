@@ -1,10 +1,9 @@
 #include "myh.hpp"
 
 int main() {
-	//Ostalo test
 
 
-	/*int* niz = NULL;
+	int* niz = NULL;
 	int broj_el = 0;
 	cout << "Unesite broj elemenata niza: ";
 	cin >> broj_el;
@@ -12,7 +11,7 @@ int main() {
 	int i = 0;
 	cout << "Unesite clanove niza";
 	unos(niz, broj_el);
-	//ispis(niz, broj_el);
+	ispis(niz, broj_el);
 	int& rez = funk(niz);
 	rez = 0;
 	int broj = 0;
@@ -27,22 +26,22 @@ int main() {
 	
 	delete niz;
 	niz = 0;
-	*/
 
-	//Struktura test
+
 	int a = 0;
 	cout << "Unesite velicinu niza";
 	cin >> a;
 	MyVector asd;
 	asd.vector_new(a);
 	cout << "Unesite clanove niza: ";
-	for (int i = 0; asd.capacity - 1; i++) {
+	for (int i = 0; i < asd.capacity; i++) {
 		int g;
 		cin >> g;
 		asd.vector_push_back(g);
 		
 	}
 	asd.print_vector();
+	cout << asd.vector_front();
 	asd.vector_delete();
 
 }
