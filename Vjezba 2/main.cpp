@@ -1,6 +1,7 @@
 #include "funkcije.hpp"
 
 int main() {
+<<<<<<< HEAD
 
 
 
@@ -75,4 +76,7 @@ int main() {
 	}
 	
 	return 0;
+=======
+	
+>>>>>>> bc53461887ed2e60847e9c1348b18e6fbdbbd4d2
 }
