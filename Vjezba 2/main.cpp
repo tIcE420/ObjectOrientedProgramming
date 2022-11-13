@@ -1,7 +1,7 @@
 #include "funkcije.hpp"
 
 int main() {
-<<<<<<< HEAD
+
 
 
 
@@ -43,7 +43,6 @@ int main() {
 
 
 
-	string str;
 	vector <string> str_s;
 	for (int i = 0; i < 5; i++) {
 		cout << "Unesi str: ";
@@ -56,8 +55,7 @@ int main() {
 	}
 	
 
-	
-	string str = "Ja bih ,ako ikako mogu , ovu recenicu napisala ispravno .";
+	str = "Ja bih ,ako ikako mogu , ovu recenicu napisala ispravno .\n";
 	
 	str = izbaci(str);
 	cout << str;
@@ -76,7 +74,5 @@ int main() {
 	}
 	
 	return 0;
-=======
-	
->>>>>>> bc53461887ed2e60847e9c1348b18e6fbdbbd4d2
+
 }

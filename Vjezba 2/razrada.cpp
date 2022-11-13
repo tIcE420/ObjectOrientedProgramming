@@ -4,7 +4,6 @@ void unos(vector<int>& vect,int exp_sz) {
 	int unos = 0;
 	for (int i = 0; i < exp_sz; i++) {
 		cout<<"Unesite: "<< i <<"."<< "Element niza: ";
-<<<<<<< HEAD
 		cin >> unos;
 		vect.push_back(unos);
 	}
@@ -106,9 +105,4 @@ vector <string> english_latin(string str) {
 
 }
 
-=======
-		cin << unos;
-		vect.push_back(unos);
-	}
-}
->>>>>>> bc53461887ed2e60847e9c1348b18e6fbdbbd4d2
+
