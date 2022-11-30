@@ -8,7 +8,7 @@ typedef struct {
 }Point;
 class board {
 	std::vector<std::vector<char>>matrica;	
-	double width, height;
+	uint32_t width, height;
 public:
 	void draw_char(Point a,char c);
 	void draw_up_line(Point a, char c);
@@ -19,6 +19,7 @@ public:
 	board();
 	board(board&);
 	board(double a, double b);
-	//board(board&& other);
+	board(board&& obj);
+	~board();
 
 };
