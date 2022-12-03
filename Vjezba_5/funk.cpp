@@ -110,3 +110,11 @@ std::ostream& OOP::operator << (std::ostream&, vect3D& c) {
 	std::cout << c.z <<": z" << std::endl;
 	return std::cout;
 }
+vect3D vect3D::normaliziraj() {
+	float len = 0;
+	len = sqrt(x * x + y * y + z * z);
+	this->x = x / len;
+	this->y = y / len;
+	this->z = z / len;
+	return *this;
+}

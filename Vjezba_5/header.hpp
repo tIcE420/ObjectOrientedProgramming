@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <math.h>
 namespace OOP {
 	class vect3D {
 		float x, y, z;
@@ -25,6 +26,7 @@ namespace OOP {
 		float get_x() { return x; }
 		float get_y() { return y; }
 		float get_z() { return z; }
+		vect3D normaliziraj();
 
 	};
 }

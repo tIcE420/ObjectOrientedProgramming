@@ -28,5 +28,7 @@ int main() {
 	vect3D g;
 	std::cin >>g;
 	std::cout << g;
-
+	vect3D o = g.normaliziraj();
+	std::cout << o;
+	
 }
