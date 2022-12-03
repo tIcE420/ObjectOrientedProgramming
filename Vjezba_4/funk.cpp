@@ -27,7 +27,13 @@ board::board(double a, double b) {
 }
 
 board::board(board& copy) {
-	this->matrica = copy.matrica;
+	this->width = copy.width;
+	this->height = copy.height;
+	for (int i = 0; i < copy.matrica.size(); i++) {
+		this->matrica.push_back(copy.matrica.at(i));
+	}
+	
+
 
 }
 void board::draw_char(Point a, char c) {
@@ -78,9 +84,10 @@ void board::draw_board() {
 
 board::board(board&& obj) {
 	this->matrica = obj.matrica;
-	for (int i = 0; obj.matrica.size(); i++) {
-		obj.matrica.at(i).clear();
-	}
+	this->height = obj.height;
+	this->width = obj.width;
+	height = 0;
+	width = 0;
 	obj.matrica.clear();
 	
 }

@@ -2,6 +2,8 @@
 
 int main() {
 	board a(30, 20);
+	board d(a);
+	
 	Point p4;
 	Point p3;
 	Point p1;
@@ -15,9 +17,10 @@ int main() {
 	p4.x = 16;
 	p4.y = 8;
 	char c = '*';
+	
 	//a.draw_up_line(p1,c);
 	//a.draw_char(p1,c);
-	a.draw_line(p1, p2, 'x');
-	a.draw_line(p3,p4,'x');
-	a.draw_board();
+	d.draw_line(p1, p2, 'x');
+	d.draw_line(p3,p4,'x');
+	d.draw_board();
 }
