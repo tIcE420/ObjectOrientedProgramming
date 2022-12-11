@@ -1,12 +1,13 @@
 #pragma once
 #include "Zivotinja.hpp"
 class Pauk : public Zivotinja {
-	std::string karakteristika;
+	std::string species;
 	size_t broj_nogu;
 public:
-
-	Pauk() : broj_nogu(8) {}
-	size_t get_nogu()override {
-		return broj_nogu;
-	}
+	Pauk(std::string name);
+	Pauk();
+	size_t get_legs_count() { return 8; }
+	std::string get_species() { return this->species; }
+	void change_species(std::string name);
+	
 };

@@ -1,11 +1,10 @@
 #include "main_head.hpp"
-//Krivo si skonto procitaj do kraja dbilu
 void main() {
-	Pauk Mirko;
-	Pauk Zarko;
-	Brojac a;
-	a.incr_count(Mirko);
-	a.incr_count(Zarko);
-	std::cout<<a.get_class_count()<<std::endl;
-	std::cout << a.get_noge_count();
+	
+	std::vector<Zivotinja*> animal_kingdom;
+	animal_kingdom = make_any();
+	Brojac s(animal_kingdom);
+	s.print_all(animal_kingdom);
+	animal_kingdom.clear();
+	
 }
