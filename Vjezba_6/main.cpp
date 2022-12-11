@@ -6,5 +6,5 @@ void main() {
 	Brojac s(animal_kingdom);
 	s.print_all(animal_kingdom);
 	animal_kingdom.clear();
-	
+
 }

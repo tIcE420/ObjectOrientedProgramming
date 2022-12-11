@@ -4,15 +4,26 @@ std::vector<Zivotinja*> make_land_octopuses(std::vector<Zivotinja*> animal_kingd
 	std::cout << "Enter how many nopes do you want?";
 	int a = 0;
 	std::cin >> a;
+	
 	std::string name;
 	for (int i = 0; i < a; i++) {
 		Zivotinja* many_legged_nope;
 		std::cout << "Enter the name of scary nope num: "<<i + 1<<" ";
 		std::cin >> name;
-		Pauk* novi = new Pauk();
-		novi->change_species(name);
-		many_legged_nope = novi;
-		animal_kingdom.push_back(many_legged_nope);
+		if (name == "Tarantula" || name == "tarantula")
+		{
+			std::cout << "Enter the name of your tarantino_nope" << std::endl;;
+			std::cin >> name;
+			animal_kingdom = make_tarantinotula(animal_kingdom,name);
+		}
+		else {
+			Pauk* novi = new Pauk();
+			novi->change_species(name);
+			many_legged_nope = novi;
+			animal_kingdom.push_back(many_legged_nope);
+		}
+
+		
 	}
 	
 	return animal_kingdom;
@@ -28,10 +39,17 @@ std::vector<Zivotinja*> make_birbs(std::vector<Zivotinja*> animal_kingdom) {
 		Zivotinja* birb;
 		std::cout << "Enter the birb name num: " << i + 1 << " ";
 		std::cin >> name;
-		Ptica* novi = new Ptica();
-		novi->change_species(name);
-		birb = novi;
-		animal_kingdom.push_back(birb);
+		if (name == "vrabac" || name == "Vrabac" || name == "Sparrow" || name == "sparrow") {
+			std::cout << "Enter the name of your Spparow: " << std::endl;
+			std::cin >> name;
+			animal_kingdom = make_tarantinotula(animal_kingdom, name);
+		}
+		else {
+			Ptica* novi = new Ptica();
+			novi->change_species(name);
+			birb = novi;
+			animal_kingdom.push_back(birb);
+		}
 	}
 
 	return animal_kingdom;
@@ -44,13 +62,13 @@ std::vector<Zivotinja*> make_milk_lovers(std::vector<Zivotinja*> animal_kingdom)
 	std::string name;
 	for (int i = 0; i < a; i++) {
 
-		Zivotinja* sucker;
+		Zivotinja* milker;
 		std::cout << "Enter the name of milker num: " << i + 1 << " ";
 		std::cin >> name;
 		Sisavac* novi = new Sisavac();
 		novi->change_species(name);
-		sucker = novi;
-		animal_kingdom.push_back(sucker);
+		milker = novi;
+		animal_kingdom.push_back(milker);
 	}
 
 	return animal_kingdom;
@@ -65,13 +83,48 @@ std::vector<Zivotinja*> make_buzzers(std::vector<Zivotinja*> animal_kingdom) {
 		Zivotinja* buzzer;
 		std::cout << "Enter the name of needle buzz poker num: " << i + 1 << " ";
 		std::cin >> name;
-		Kukac* novi = new Kukac();
-		novi->change_species(name);
-		buzzer = novi;
-		animal_kingdom.push_back(buzzer);
+		if (name == "Zohar" || name == "zohar" || name == "cockroach" || name == "roach" || name == "Cockroach" || name == "Roach") {
+			animal_kingdom = make_roach(animal_kingdom,name);
+		}
+		else {
+			Kukac* novi = new Kukac();
+			novi->change_species(name);
+			buzzer = novi;
+			animal_kingdom.push_back(buzzer);
+		}
 	}
 
 	return animal_kingdom;
+}
+std::vector<Zivotinja*> make_tarantinotula(std::vector<Zivotinja*> animal_kingdom,std::string name) {
+	Tarantula* Mirko = new Tarantula();
+	Mirko->change_name(name);
+	Zivotinja* tarantino;
+	tarantino = Mirko;
+	
+	animal_kingdom.push_back(tarantino);
+	return animal_kingdom;
+	
+}
+std::vector<Zivotinja*> make_vrabac(std::vector<Zivotinja*> animal_kingdom, std::string name) {
+	Vrabac* Mirko = new Vrabac();
+	Mirko->change_name(name);
+	Zivotinja* birb ;
+	birb = Mirko;
+
+	animal_kingdom.push_back(birb);
+	return animal_kingdom;
+}
+
+std::vector<Zivotinja*> make_roach(std::vector<Zivotinja*> animal_kingdom, std::string name) {
+	Zohar* Mirko = new Zohar();
+	Mirko->change_name(name);
+	Zivotinja* roach;
+	roach = Mirko;
+
+	animal_kingdom.push_back(roach);
+	return animal_kingdom;
+
 }
 std::vector<Zivotinja*>make_any(){
 	std::cout << "You are able to make x ammount of any objects" << std::endl;
