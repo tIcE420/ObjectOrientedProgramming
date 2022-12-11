@@ -14,5 +14,6 @@ std::vector<Zivotinja*> make_birbs(std::vector<Zivotinja*> animal_kingdom);
 std::vector<Zivotinja*> make_milk_lovers(std::vector<Zivotinja*> animal_kingdom);
 std::vector<Zivotinja*> make_buzzers(std::vector<Zivotinja*> animal_kingdom);
 std::vector<Zivotinja*> make_tarantinotula(std::vector<Zivotinja*> animal_kingdom,std::string name);
-	std::vector<Zivotinja*> make_vrabac(std::vector<Zivotinja*> animal_kingdom, std::string name);
-	std::vector<Zivotinja*> make_roach(std::vector<Zivotinja*> animal_kingdom, std::string name);
+std::vector<Zivotinja*> make_vrabac(std::vector<Zivotinja*> animal_kingdom, std::string name);
+std::vector<Zivotinja*> make_roach(std::vector<Zivotinja*> animal_kingdom, std::string name);
+void destroy_vect(std::vector<Zivotinja*> animal_kingdom);

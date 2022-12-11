@@ -5,6 +5,6 @@ void main() {
 	animal_kingdom = make_any();
 	Brojac s(animal_kingdom);
 	s.print_all(animal_kingdom);
-	animal_kingdom.clear();
+	destroy_vect(animal_kingdom);
 
 }

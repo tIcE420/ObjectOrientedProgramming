@@ -177,3 +177,9 @@ std::vector<Zivotinja*>make_any(){
 	}
 	return animal_kingdom;
 }
+void destroy_vect(std::vector<Zivotinja*> animal_kingdom) {
+	for (int i = 0; i < animal_kingdom.size(); i++) {
+		delete animal_kingdom.at(i);
+	}
+	
+}
