@@ -42,7 +42,7 @@ std::vector<Zivotinja*> make_birbs(std::vector<Zivotinja*> animal_kingdom) {
 		if (name == "vrabac" || name == "Vrabac" || name == "Sparrow" || name == "sparrow") {
 			std::cout << "Enter the name of your Spparow: " << std::endl;
 			std::cin >> name;
-			animal_kingdom = make_tarantinotula(animal_kingdom, name);
+			animal_kingdom = make_vrabac(animal_kingdom, name);
 		}
 		else {
 			Ptica* novi = new Ptica();
