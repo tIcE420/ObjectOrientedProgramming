@@ -10,16 +10,20 @@ int main()
     
     int arr[] = { 5, 3, 7, 1, 4, 2, 6 };
     int n = 7;
-    quicksort2(arr, n);
+    quicksort(arr, n);
     for (int i = 0; i < n; i++) {
-        std::cout << arr[i];
+        std::cout << arr[i] <<std::endl;
     }
     char arr2[] = { 'c', 'a', 'b', 'd', 'e', 'f' };
     int n2 = 6;
-    quicksort2<char>(arr2,n2);
+    quicksort<char>(arr2,n2);
     for (int i = 0; i < n2; i++) {
-        std::cout << arr2[i];
+        std::cout << arr2[i]<<std::endl;
     }
+    point <int> p1(2, 3);
+    point <int> p2(3, 4);
+    std::cout << "udaljenost tocaka" << p1 <<" i " << p2 << " je " << p1 - p2;
     return 0;
 }
+
 

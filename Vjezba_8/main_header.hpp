@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <cctype>
+#include <math.h>
 template <typename moj_temp>
 moj_temp min(moj_temp a, moj_temp b)
 {
@@ -58,7 +59,7 @@ void quicksort(moj_temp* arr,int left, int right) {
     quicksort(arr,i, right);
 }
 template<typename moj_temp>
-void quicksort2(moj_temp* arr,int n) {
+void quicksort(moj_temp* arr,int n) {
     quicksort(arr, 0, n - 1);
 }
 template <>
@@ -85,6 +86,50 @@ void quicksort<char>(char *arr, int left, int right) {
 }
 
 template <>
-void quicksort2<char>(char* arr, int n) {
+void quicksort<char>(char* arr, int n) {
     quicksort<char>(arr, 0, n - 1);
 }
+
+template<typename moj_temp>
+class point {
+private:
+    moj_temp x,y;
+public:
+    point() {
+        y = 0;
+        x = 0;
+    }
+    point(moj_temp a, moj_temp b) {
+        x = a;
+        y = b;
+    }
+    moj_temp operator -(const point& rhs) {
+        return sqrt((rhs.x - x) * (rhs.x - x) + (rhs.y - y) * (rhs.y - y));
+    }
+    friend std::ostream& operator <<(std::ostream& out, const point& rhs) {
+        out << "(" << rhs.x <<"," << rhs.y << ")";
+        return out;
+    }
+};
+
+template<>
+class point<int> {
+private:
+    int x, y;
+public:
+    point() {
+        x = 0;
+        y = 0;
+    }
+    point(int a, int b) {
+        x = a;
+        y = b;
+    }
+    float operator -(const point& rhs) {
+        return sqrt((rhs.x - x) * (rhs.x - x) + (rhs.y - y) * (rhs.y - y));
+    }
+    friend std::ostream& operator <<(std::ostream& out,const point<int>& rhs) {
+        out << "(" << rhs.x<<"," << rhs.y << ")";
+        return out;
+    }
+};
