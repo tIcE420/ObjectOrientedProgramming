@@ -18,11 +18,11 @@ private:
 	std::string guess = "";
 	int score = 0;
 	int games_played = 0;
+	int guesses = 6;
 public:
 	void readwords();
 	void printwords();
 	void generate_game();
-
 	void game_run();
 	std::string get_answer() { return word; }
 	std::string get_guess() { return guess; }
@@ -37,6 +37,6 @@ private:
 	
 public:
 	void get_stats();
-	
+
 
 };

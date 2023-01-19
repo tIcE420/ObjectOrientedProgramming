@@ -1,4 +1,4 @@
-#include "functions.hpp"
+#include "game.hpp"
 
 int main() {
 	game_stats wordle;

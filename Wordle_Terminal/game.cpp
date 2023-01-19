@@ -1,4 +1,4 @@
-#include "functions.hpp"
+#include "game.hpp"
 void game::readwords() {
 	std::ifstream file("words.txt");
 	if (!file.is_open()) {
@@ -21,17 +21,76 @@ void game::printwords() {
 void game::generate_game() {
 	wrd = rand() % 214;
 	word = words[wrd];
+	std::string frames[] = { R"(
+                _,.---._        ,---.                       .=-.-.  .-._               _,---.   
+   _.-.       ,-.' , -  `.    .--.'  \       _,..---._     /==/_ / /==/ \  .-._    _.='.'-,  \  
+ .-,.'|      /==/_,  ,  - \   \==\-/\ \    /==/,   -  \   |==|, |  |==|, \/ /, /  /==.'-     /  
+|==|, |     |==|   .=.     |  /==/-|_\ |   |==|   _   _\  |==|  |  |==|-  \|  |  /==/ -   .-'   
+|==|- |     |==|_ : ;=:  - |  \==\,   - \  |==|  .=.   |  |==|- |  |==| ,  | -|  |==|_   /_,-.  
+|==|, |     |==| , '='     |  /==/ -   ,|  |==|,|   | -|  |==| ,|  |==| -   _ |  |==|  , \_.' ) 
+|==|- `-._   \==\ -    ,_ /  /==/-  /\ - \ |==|  '='   /  |==|- |  |==|  /\ , |  \==\-  ,    (  
+/==/ - , ,/   '.='. -   .'   \==\ _.\=\.-' |==|-,   _`/   /==/. /  /==/, | |- |   /==/ _  ,  /  
+`--`-----'      `--`--''      `--`         `-.`.____.'    `--`-`   `--`./  `--`   `--`------'   
+)", R"(
+                _,.---._        ,---.                       .=-.-.  .-._               _,---.         
+   _.-.       ,-.' , -  `.    .--.'  \       _,..---._     /==/_ / /==/ \  .-._    _.='.'-,  \        
+ .-,.'|      /==/_,  ,  - \   \==\-/\ \    /==/,   -  \   |==|, |  |==|, \/ /, /  /==.'-     /        
+|==|, |     |==|   .=.     |  /==/-|_\ |   |==|   _   _\  |==|  |  |==|-  \|  |  /==/ -   .-'         
+|==|- |     |==|_ : ;=:  - |  \==\,   - \  |==|  .=.   |  |==|- |  |==| ,  | -|  |==|_   /_,-.        
+|==|, |     |==| , '='     |  /==/ -   ,|  |==|,|   | -|  |==| ,|  |==| -   _ |  |==|  , \_.' )       
+|==|- `-._   \==\ -    ,_ /  /==/-  /\ - \ |==|  '='   /  |==|- |  |==|  /\ , |  \==\-  ,    (   .=.  
+/==/ - , ,/   '.='. -   .'   \==\ _.\=\.-' |==|-,   _`/   /==/. /  /==/, | |- |   /==/ _  ,  /  :=; : 
+`--`-----'      `--`--''      `--`         `-.`.____.'    `--`-`   `--`./  `--`   `--`------'    `=`  
+)", R"(
+                _,.---._        ,---.                       .=-.-.  .-._               _,---.               
+   _.-.       ,-.' , -  `.    .--.'  \       _,..---._     /==/_ / /==/ \  .-._    _.='.'-,  \              
+ .-,.'|      /==/_,  ,  - \   \==\-/\ \    /==/,   -  \   |==|, |  |==|, \/ /, /  /==.'-     /              
+|==|, |     |==|   .=.     |  /==/-|_\ |   |==|   _   _\  |==|  |  |==|-  \|  |  /==/ -   .-'               
+|==|- |     |==|_ : ;=:  - |  \==\,   - \  |==|  .=.   |  |==|- |  |==| ,  | -|  |==|_   /_,-.              
+|==|, |     |==| , '='     |  /==/ -   ,|  |==|,|   | -|  |==| ,|  |==| -   _ |  |==|  , \_.' )             
+|==|- `-._   \==\ -    ,_ /  /==/-  /\ - \ |==|  '='   /  |==|- |  |==|  /\ , |  \==\-  ,    (   .=.   .=.  
+/==/ - , ,/   '.='. -   .'   \==\ _.\=\.-' |==|-,   _`/   /==/. /  /==/, | |- |   /==/ _  ,  /  :=; : :=; : 
+`--`-----'      `--`--''      `--`         `-.`.____.'    `--`-`   `--`./  `--`   `--`------'    `=`   `=`  
+)",R"(
+                _,.---._        ,---.                       .=-.-.  .-._               _,---.                     
+   _.-.       ,-.' , -  `.    .--.'  \       _,..---._     /==/_ / /==/ \  .-._    _.='.'-,  \                    
+ .-,.'|      /==/_,  ,  - \   \==\-/\ \    /==/,   -  \   |==|, |  |==|, \/ /, /  /==.'-     /                    
+|==|, |     |==|   .=.     |  /==/-|_\ |   |==|   _   _\  |==|  |  |==|-  \|  |  /==/ -   .-'                     
+|==|- |     |==|_ : ;=:  - |  \==\,   - \  |==|  .=.   |  |==|- |  |==| ,  | -|  |==|_   /_,-.                    
+|==|, |     |==| , '='     |  /==/ -   ,|  |==|,|   | -|  |==| ,|  |==| -   _ |  |==|  , \_.' )                   
+|==|- `-._   \==\ -    ,_ /  /==/-  /\ - \ |==|  '='   /  |==|- |  |==|  /\ , |  \==\-  ,    (   .=.   .=.   .=.  
+/==/ - , ,/   '.='. -   .'   \==\ _.\=\.-' |==|-,   _`/   /==/. /  /==/, | |- |   /==/ _  ,  /  :=; : :=; : :=; : 
+`--`-----'      `--`--''      `--`         `-.`.____.'    `--`-`   `--`./  `--`   `--`------'    `=`   `=`   `=`  
+)" };
+	bool isloading = true;
+	int frame_count = 0;
+
+	while (isloading) {
+
+		std::cout << frames[0];
+		system("cls");
+		std::cout << frames[1];
+		system("cls");
+		std::cout << frames[2];
+		system("cls");
+		std::cout << frames[3];
+		system("cls");
+		frame_count++;
+		if (frame_count > 10) {
+			isloading = false;
+		}
+	}
 	
 	
 }
 
 void game::game_run() {
-	int guesses = 6;
+	
 	std::string input = "";
 	std::cout << "Welcome to wordle terminal" << std::endl;
 	games_played++;
 	used_words.push_back(word);
-	while (true) {
+	while (guesses > 0) {
 		std::cout << "Take a guess of the mistery 5 letter word"<<std::endl;
 		std::cin >> guess;
 		
@@ -49,14 +108,18 @@ void game::game_run() {
 		
 		if (guess == word) {
 			std::cout << "Congrats you guessed the word" << " Word: " << word << std::endl;
-			std::cout << "Would you like to play another one?" << std::endl;
-			std::cout << "If you'd like to play another game input 1, else input anything else" << std::endl;
 			score++;
+			std::cout << "If you'd like to quit input q if not input anything else";
 			std::cin >> input;
-			if (input[0] != '1') {
+			if (input == "q") 
+			{
+				guesses = 6;
+				input.clear();
 				break;
 			}
-			else if (input[0] == '1') {
+			else {
+				guesses = 6;
+				input.clear();
 				generate_game();
 				game_run();
 			}
@@ -89,17 +152,20 @@ void game::game_run() {
 		if (guesses == 0) {
 			std::cout << "Sorry you didn't manage to guess the word in six tries" << std::endl;
 			std::cout << "The word was: " << word << std::endl;
-			std::cout << "Would you like to play another one?" << std::endl;
-			std::cout << "If you'd like to play another game input 1, else input anything else" << std::endl;
+			std::cout << "If you'd like to quit input q if not input anything else";
 			all_tries.push_back(incomplete_answer);
 			std::cin >> input;
-			if (input[0] != '1') {
+			if (input == "q") {
+				input.clear();
 				break;
 			}
-			else if (input[0] == '1') {
+			else {
+				input.clear();
+				guesses = 6;
 				generate_game();
 				game_run();
 			}
+		
 		}
 	}
 
@@ -110,11 +176,11 @@ void game_stats::get_stats() {
 	std::vector<std::string> list_of_used_words = get_used_words();
 	std::vector<std::string> list_of_tries = get_all_tries();
 	for (int i = 0; i < list_of_tries.size(); i++) {
-		std::cout << "This is your try number "<<i<<":" << std::endl << list_of_tries.at(i);
+		std::cout << "This is your try number " << i << ":" << std::endl << list_of_tries.at(i) << std::endl;
 		
 	}
 	for (int i = 0; i < list_of_used_words.size(); i++) {
-		std::cout << "This is the required word at game " << i << ":" << std::endl << list_of_used_words.at(i);
+		std::cout << "This is the required word at game " << i << ":" << std::endl << list_of_used_words.at(i)<<std::endl;
 
 	}
 	list_of_used_words.clear();
