@@ -12,7 +12,7 @@ void unos_2(vector<int>& , int, int);
 void broj(string, string);
 void okreni(vector<string>&, string);
 string izbaci(string);
-vector <string> english_latin(string);
+vector <string> pig_latin(string);
 
 using namespace std;
 

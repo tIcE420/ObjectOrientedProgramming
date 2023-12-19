@@ -68,7 +68,7 @@ int main() {
 	recenice.push_back("Money I need");
 	int random = 1;
 
-	rez = english_latin(recenice.at(random));
+	rez = pig_latin(recenice.at(random));
 	for (int i = 0; i < rez.size(); i++) {
 		cout << rez.at(i);
 	}

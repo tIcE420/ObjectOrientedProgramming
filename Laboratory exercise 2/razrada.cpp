@@ -64,7 +64,7 @@ string izbaci(string str) {
 	return str;
 }
 
-vector <string> english_latin(string str) {
+vector <string> pig_latin(string str) {
 	string subs;
 	vector <string> rici;
 	string recenica;
